@@ -1,4 +1,4 @@
-Tailwind
+Tailwind - instalar
 Distribucion carpetas - screaming architecture
 eslint - instalar
 
@@ -10,6 +10,6 @@ ngIf
 
 validators
 
-conf con sass
+configurar instalacion con sass
 
 npm install X --save-dev (-D)
