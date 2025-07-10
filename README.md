@@ -35,6 +35,8 @@ PENDIENTE
 - SASS
 - Typescript
 - Angular
+- Tailwind
+- Eslint
 
 ## 📋Requisitos
 

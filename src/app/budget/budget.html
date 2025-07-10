@@ -1,0 +1,24 @@
+<form>
+    <article>
+        <h2>SEO</h2>
+        <p>Hacer una campaña SEO.</p>
+        <p>300€</p>
+        <label for="seo">Agrega</label>
+        <input id="seo" type="checkbox" [formControl]="doSEO">
+    </article>
+    <article>
+        <h2>Ads</h2>
+        <p>Realización de una campaña publicitaria.</p>
+        <p>400€</p>
+        <label for="ads">Agrega</label>
+        <input id="ads" type="checkbox" [formControl]="doAds">
+    </article>
+    <article>
+        <h2>Web</h2>
+        <p>Programación de una web responsive completa.</p>
+        <p>500€</p>
+        <label for="web">Agrega</label>
+        <input id="web" type="checkbox" [formControl]="doWeb">
+    </article>
+    <p>Precio presupuestado: 0€</p>
+</form>
