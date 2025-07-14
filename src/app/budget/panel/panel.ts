@@ -8,10 +8,6 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './panel.scss',
 })
 export class Panel {
-  pagePrice = 30;
-  langPrice = 30;
-  // totalPages = 0;
-  // totalLangs = 0;
   numPages = new FormControl(1);
   numLangs = new FormControl(1);
 
@@ -28,35 +24,45 @@ export class Panel {
     if (this.numPages.value! > 1) {
       this.numPages.setValue(this.numPages.value! - 1);
       this.changePages();
-      // this.changePages(this.numPages.value! - 1)
-    };
+    }
+  }
+
+  setPages(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const value = Number(input.value);
+    console.log(value)
+    if (value >= 1 && value <= 100) {
+      this.numPages.setValue(value);
+      this.changePages();
+    }
   }
 
   changePages() {
-
-    // this.numPages.patchValue(value);
     this.numPagesChange.emit(this.numPages.value!);
-    // this.calculatePages();
   }
-  // calculatePages() {
-  //   this.totalPages = this.numPages.value! * 30;
-  // }
-
 
   addLang() {
-    if (this.numLangs.value! < 100) this.changeLangs(this.numLangs.value! + 1);
+    if (this.numLangs.value! < 100) {
+      this.numLangs.setValue(this.numLangs.value! + 1);
+      this.changeLangs();
+    }
   }
   substractLang() {
-    if (this.numLangs.value! > 1) this.changeLangs(this.numLangs.value! - 1);
+    if (this.numLangs.value! > 1) {
+      this.numLangs.setValue(this.numLangs.value! - 1);
+      this.changeLangs();
+    }
+  }
+  setLangs(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const value = Number(input.value);
+    if (value >= 1 && value <= 100) {
+      this.numLangs.setValue(value);
+      this.changeLangs();
+    }
   }
 
-  changeLangs(value: number) {
-    this.numLangs.patchValue(value);
-    this.numLangsChange.emit(value);
-    // this.calculateLangs();
+  changeLangs() {
+    this.numLangsChange.emit(this.numLangs.value!);
   }
-  // calculateLangs() {
-  //   this.totalLangs = this.numLangs.value! * 30;
-  // }
-
 }
