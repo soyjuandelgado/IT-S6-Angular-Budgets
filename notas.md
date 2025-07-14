@@ -27,7 +27,7 @@ npm install X --save-dev (-D)
 
 TODO:
 
-- Como cargar imagenes de /src/assets?
+- [x] Como cargar imagenes de /src/assets?
 - Vigilar el reseteo al cambiar el input de numPages
 - Ocultar/deshabilitar panel si no esta agregada Web
 - Hacer validaciones de numPages
