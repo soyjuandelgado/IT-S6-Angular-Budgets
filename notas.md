@@ -24,3 +24,11 @@ npm install X --save-dev (-D)
 
 - Usar environments para variables de entorno
 - como funciona intellisense de Tailwind?
+
+TODO:
+
+- Como cargar imagenes de /src/assets?
+- Vigilar el reseteo al cambiar el input de numPages
+- Ocultar/deshabilitar panel si no esta agregada Web
+- Hacer validaciones de numPages
+- Hacer servicio de calculo de presupuesto

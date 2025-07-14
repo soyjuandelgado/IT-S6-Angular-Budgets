@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Panel } from './panel/panel';
 
 @Component({
   selector: 'app-budget',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, Panel],
   templateUrl: './budget.html',
   styleUrl: './budget.scss',
 })

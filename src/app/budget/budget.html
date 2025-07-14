@@ -8,8 +8,8 @@
             <span class="price text-3xl lg:text-4xl">{{seoPrice}}</span>€
         </p>
         <div class="flex flex-row justify-end items-center">
-            <label for="seo">Agrega</label>
             <input class="mx-2" id="seo" type="checkbox" [formControl]="doSEO" (change)="calculateTotal()">
+            <label for="seo">Agrega</label>
         </div>
     </article>
     <article class="my-5 p-5 lg:p-10 grid grid-cols-[2fr_1fr_1fr] gap-2 items-center rounded-xl shadow-xl">
@@ -21,8 +21,8 @@
             <span class="price text-3xl lg:text-4xl">{{adsPrice}}</span>€
         </p>
         <div class="flex flex-row justify-end items-center">
-            <label for="ads">Agrega</label>
             <input class="mx-2" id="ads" type="checkbox" [formControl]="doAds" (change)="calculateTotal()">
+            <label for="ads">Agrega</label>
         </div>
     </article>
     <article class="my-5 p-5 lg:p-10 grid grid-cols-[2fr_1fr_1fr] gap-2 items-center rounded-xl shadow-xl">
@@ -34,11 +34,12 @@
             <span class="price text-3xl lg:text-4xl">{{webPrice}}</span>€
         </p>
         <div class="flex flex-row justify-end items-center">
-            <label for="web">Agrega</label>
             <input class="mx-2" id="web" type="checkbox" [formControl]="doWeb" (change)="calculateTotal()">
+            <label for="web">Agrega</label>
         </div>
+        <app-panel class="col-span-3"></app-panel>
     </article>
     <article class="px-2 py-5">
-        <p class="text-right text-xl lg:text-2xl font-bold">Precio presupuestado: <span class="total-budget">{{totalBudget}}</span>€</p>
+        <p class="text-right text-xl lg:text-2xl font-bold">Precio presupuestado: <span class="total-budget text-3xl lg:text-4xl">{{totalBudget}}</span>€</p>
     </article>
 </form>
