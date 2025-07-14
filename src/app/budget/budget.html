@@ -37,8 +37,9 @@
             <input class="mx-2" id="web" type="checkbox" [formControl]="doWeb" (change)="calculateTotal()">
             <label for="web">Agrega</label>
         </div>
-        <app-panel class="col-span-3"></app-panel>
+        <app-panel class="col-span-3" (numPagesChange)="changeNumPages($event)" (numLangsChange)="changeNumLangs($event)"></app-panel>
     </article>
+    <!-- <h2 class="text-4xl">Pages: {{totalPages}} - Languages: {{totalLangs}}</h2> -->
     <article class="px-2 py-5">
         <p class="text-right text-xl lg:text-2xl font-bold">Precio presupuestado: <span class="total-budget text-3xl lg:text-4xl">{{totalBudget}}</span>€</p>
     </article>

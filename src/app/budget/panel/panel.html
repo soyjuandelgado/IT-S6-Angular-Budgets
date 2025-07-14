@@ -1,11 +1,19 @@
 <div class="flex flex-row justify-end items-center gap-5">
-    <label class="" for="web-pages">Número de páginas:{{totalPaginas}}</label>
+    <label class="" for="web-pages">Número de páginas:</label>
     <div class="flex flex-row gap-2 items-center">
-        <button type="button" (click)="substractPage()"><img class="w-5" src="minus.png" alt="restar"></button>
-        <!-- <button class="px-2 border rounded-full" - </button> -->
+        <button type="button" (click)="substractPage()"><img class="w-5" src="assets/minus.png" alt="restar"></button>
         <!-- Vigilar el reseteo al cambiar valor -->
-        <input class="p-1 w-12 justify-self-end text-center border rounded-md border-gray-300" type="number" id="web-pages" [formControl] = "numPages" (change)="calculatePages()">
-        <!-- <button class="px-2 border rounded-full"> + </button> -->
-        <button type="button" (click)="addPage()"><img class="w-5" src="add.png" alt="sumar" ></button>
+        <input class="p-1 w-12 justify-self-end text-center border rounded-md border-gray-300" type="number" id="web-pages" [formControl] = "numPages" (change)="changePages()">
+        <button type="button" (click)="addPage()"><img class="w-5" src="assets/add.png" alt="sumar" ></button>
+    </div>
+</div>
+
+<div class="flex flex-row justify-end items-center gap-5">
+    <label class="" for="lang-quantity">Número de idiomas:</label>
+    <div class="flex flex-row gap-2 items-center">
+        <button type="button" (click)="substractLang()"><img class="w-5" src="assets/minus.png" alt="restar"></button>
+        <!-- Vigilar el reseteo al cambiar valor -->
+        <input class="p-1 w-12 justify-self-end text-center border rounded-md border-gray-300" type="number" id="lang-quantity" [formControl] = "numLangs" (change)="changeLangs(0)">
+        <button type="button" (click)="addLang()"><img class="w-5" src="assets/add.png" alt="sumar" ></button>
     </div>
 </div>

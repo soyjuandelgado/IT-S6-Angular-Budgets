@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -10,25 +10,53 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 export class Panel {
   pagePrice = 30;
   langPrice = 30;
-  totalPaginas=0;
-  numPages = new FormControl(1)
+  // totalPages = 0;
+  // totalLangs = 0;
+  numPages = new FormControl(1);
+  numLangs = new FormControl(1);
 
-  addPage(){
-    if (this.numPages.value! < 100)
-      this.changePages(this.numPages.value! + 1);
+  @Output() numPagesChange = new EventEmitter<number>();
+  @Output() numLangsChange = new EventEmitter<number>();
+
+  addPage() {
+    if (this.numPages.value! < 100) {
+      this.numPages.setValue(this.numPages.value! + 1);
+      this.changePages();
+    }
   }
-  substractPage(){
-    if (this.numPages.value! > 1)
-      this.changePages(this.numPages.value! - 1);
+  substractPage() {
+    if (this.numPages.value! > 1) {
+      this.numPages.setValue(this.numPages.value! - 1);
+      this.changePages();
+      // this.changePages(this.numPages.value! - 1)
+    };
   }
 
-  changePages(value:number){
-    this.numPages.patchValue(value);
-    this.calculatePages()
+  changePages() {
+
+    // this.numPages.patchValue(value);
+    this.numPagesChange.emit(this.numPages.value!);
+    // this.calculatePages();
   }
-  calculatePages(){
-    this.totalPaginas = this.numPages.value! * 30;
+  // calculatePages() {
+  //   this.totalPages = this.numPages.value! * 30;
+  // }
+
+
+  addLang() {
+    if (this.numLangs.value! < 100) this.changeLangs(this.numLangs.value! + 1);
   }
+  substractLang() {
+    if (this.numLangs.value! > 1) this.changeLangs(this.numLangs.value! - 1);
+  }
+
+  changeLangs(value: number) {
+    this.numLangs.patchValue(value);
+    this.numLangsChange.emit(value);
+    // this.calculateLangs();
+  }
+  // calculateLangs() {
+  //   this.totalLangs = this.numLangs.value! * 30;
+  // }
+
 }
-
-
