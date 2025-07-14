@@ -27,16 +27,6 @@ export class Panel {
     }
   }
 
-  setPages(event: Event) {
-    const input = event.target as HTMLInputElement;
-    const value = Number(input.value);
-    console.log(value)
-    if (value >= 1 && value <= 100) {
-      this.numPages.setValue(value);
-      this.changePages();
-    }
-  }
-
   changePages() {
     this.numPagesChange.emit(this.numPages.value!);
   }
@@ -50,14 +40,6 @@ export class Panel {
   substractLang() {
     if (this.numLangs.value! > 1) {
       this.numLangs.setValue(this.numLangs.value! - 1);
-      this.changeLangs();
-    }
-  }
-  setLangs(event: Event) {
-    const input = event.target as HTMLInputElement;
-    const value = Number(input.value);
-    if (value >= 1 && value <= 100) {
-      this.numLangs.setValue(value);
       this.changeLangs();
     }
   }
