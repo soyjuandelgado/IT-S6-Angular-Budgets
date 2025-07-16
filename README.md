@@ -5,7 +5,8 @@
 - [IT-S6-Angular-Budgets](#it-s6-angular-budgets)
   - [🗂️Tabla de contenidos](#️tabla-de-contenidos)
   - [📄Descripción](#descripción)
-    - [1. EJERCICIO](#1-ejercicio)
+    - [1. Creación del formulario](#1-creación-del-formulario)
+    - [2. Añadir páginas e idiomas](#2-añadir-páginas-e-idiomas)
   - [💻Tecnologías Utilizadas](#tecnologías-utilizadas)
   - [📋Requisitos](#requisitos)
   - [🛠️Instalación](#️instalación)
@@ -17,15 +18,23 @@
 
 PENDIENTE
 
-### 1. EJERCICIO
+### 1. Creación del formulario
 
-PENDIENTE
+- Maquetar web inicial
+- Crear un formulario con tres bloques: SEO, Ads y Web
+- Al hacer activar los checks, se suman los precios al total del presupuesto.
 
--  
+### 2. Añadir páginas e idiomas
 
-<img src="public/ex1.png" width="500">
+- En el elemento Web, añadir el número de páginas y de idiomas
+- Añadir botones para subir y bajar los valores de páginas e idiomas
+- Calcular el presupuesto con los elementos nuevos
+- Separar en componentes: budget, product y panel.
+- Implementar signal para gestionar cambios
+- Mover cálculos a servicio
+- Mover datos a archivo de datos
 
-
+<img src="public/ex2.png" width="500">
 
 ## 💻Tecnologías Utilizadas
 
