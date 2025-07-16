@@ -1,49 +1,59 @@
-import { Injectable } from '@angular/core';
-import { Product } from './product';
+import { Injectable, signal } from '@angular/core';
+import { IProduct } from './iproduct';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BudgetProducts {
-  list: Product[] =[
+  list = signal<IProduct[]>([
     {
-      id: "seo",
-      name: "SEO",
-      description: "*Hacer una campaña SEO.",
+      id: 'seo',
+      name: 'SEO',
+      description: '*Hacer una campaña SEO.',
       price: 303,
-      quantity: 0
+      quantity: 0,
     },
     {
-      id: "ads",
-      name: "Ads",
-      description: "*Realización de una campaña publicitaria.",
+      id: 'ads',
+      name: 'Ads',
+      description: '*Realización de una campaña publicitaria.',
       price: 404,
-      quantity: 0
+      quantity: 0,
     },
     {
-      id: "web",
-      name: "Web",
-      description: "*Programación de una web responsive completa.",
+      id: 'web',
+      name: 'Web',
+      description: '*Programación de una web responsive completa.',
       price: 505,
       quantity: 0,
-      products:[
+      products: [
         {
-          id: "web-page",
-          name: "Páginas",
-          description: "Cantidad de páginas de la web. Mínimo tiene que tener una.",
+          id: 'web-page',
+          name: 'Páginas',
+          description:
+            'Cantidad de páginas de la web. Mínimo tiene que tener una.',
           price: 30,
-          quantity: 1
+          quantity: 1,
         },
         {
-          id: "web-lang",
-          name: "Idiomas",
-          description: "Cantidad de idiomas de la web. Mínimo tiene que tener uno.",
+          id: 'web-lang',
+          name: 'Idiomas',
+          description:
+            'Cantidad de idiomas de la web. Mínimo tiene que tener uno.',
           price: 30,
-          quantity: 1
-        }
-      ]
-    }
-  ]
+          quantity: 1,
+        },
+      ],
+    },
+  ]);
 
-  
+  totalBudget() {
+    console.log(this.list())
+    const total = this.list()
+      .filter((p) => p.quantity > 0)
+      .reduce((total, p) => total + p.price * p.quantity, 0);
+    console.log(total)
+  };
+
+
 }
