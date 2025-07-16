@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 import { IProduct } from './iproduct';
 
 @Injectable({
@@ -47,13 +47,21 @@ export class BudgetProducts {
     },
   ]);
 
-  totalBudget() {
-    console.log(this.list())
-    const total = this.list()
+  total = computed(() => {
+    console.log(this.list());
+    return this.list()
       .filter((p) => p.quantity > 0)
-      .reduce((total, p) => total + p.price * p.quantity, 0);
-    console.log(total)
-  };
+      .reduce((total, p) => total + this.productAmount(p), 0);
+  });
 
-
+  productAmount(p: IProduct) {
+    let total = 0;
+    if (p.products) {
+      total = p.products
+        .filter((prod) => prod.quantity > 0)
+        .reduce((t, prod) => t + this.productAmount(prod), 0);
+    }
+    total += p.price * p.quantity;
+    return total;
+  }
 }

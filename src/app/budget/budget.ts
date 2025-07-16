@@ -14,23 +14,7 @@ import { IProduct } from './iproduct';
 export class Budget {
   budgetServ = inject(BudgetProducts);
   products = this.budgetServ.list;
-  totalBudget = computed(() => {
-    console.log(this.products());
-    return this.products()
-      .filter((p) => p.quantity > 0)
-      .reduce((total, p) => total + this.productAmount(p), 0);
-  });
-
-  productAmount(p: IProduct) {
-    let total = 0;
-    if (p.products) {
-      total = p.products
-        .filter((prod) => prod.quantity > 0)
-        .reduce((t, prod) => t + this.productAmount(prod), 0);
-    }
-    total += p.price * p.quantity;
-    return total;
-  }
+  totalBudget = this.budgetServ.total;
 
   changeProduct(event: Event, index: number) {
     const input = event.target as HTMLInputElement;
@@ -55,5 +39,4 @@ export class Budget {
     arr[index1].products![index2].quantity = value;
     this.products.set(arr);
   }
-
 }
