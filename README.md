@@ -70,4 +70,4 @@ npm install
 
 ## ▶️Ejecución
 
-Visitar la web: [Web](https://it-s5-angular-on-boarding.vercel.app/)
+Visitar la web: [Web](https://it-s6-angular-budgets-git-develop-juans-projects-c1221148.vercel.app/)

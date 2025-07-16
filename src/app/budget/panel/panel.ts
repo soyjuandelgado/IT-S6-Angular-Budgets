@@ -40,4 +40,8 @@ export class Panel {
     arr[this.parentIndex()].products![this.productIndex()].quantity = value;
     this.products.set(arr);
   }
+
+  openInformation() {
+    alert(this.product().description);
+  }
 }
