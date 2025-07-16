@@ -1,24 +1,33 @@
-import { Component, computed, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { Panel } from '../panel/panel';
 import { IProduct } from '../iproduct';
+import { BudgetProducts } from '../budget-products';
 
 @Component({
   selector: 'app-product',
   imports: [Panel],
   templateUrl: './product.html',
-  styleUrl: './product.scss'
+  styleUrl: './product.scss',
 })
 export class Product {
-  product = input<IProduct>()
-  total = 0;
+  budgetServ = inject(BudgetProducts);
+  products = this.budgetServ.list;
+  parentIndex = input(0);
+  product = input<IProduct>({
+    id: 'seo',
+    name: 'SEO',
+    description: '*Hacer una campaña SEO.',
+    price: 303,
+    quantity: 0,
+  });
 
-  totalBudget = computed( () => {
-    console.log(this.product())
-    let total = this.product()!.price * this.product()!.quantity;
-    if(this.product()!.products){
-      total += this.product()!.products!.filter((p) => p.quantity > 0)
-        .reduce((total, p) => total + p.price * p.quantity, 0)
-    }
-    return total;
-});
+  changeProduct(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const value = input.checked ? 1 : 0;
+    this.products.update((arr) =>
+      arr.map((p, i) =>
+        i === this.parentIndex() ? { ...p, quantity: value } : p
+      )
+    );
+  }
 }

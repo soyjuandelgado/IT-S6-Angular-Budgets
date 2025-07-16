@@ -1,33 +1,7 @@
 <form class="mx-auto">
-    <!-- @for (product of products(); track product.id; let index = $index){
-        <app-product [product] = "product"></app-product>
-    } -->
     @for (product of products(); track product.id; let index = $index){
-        <article class="my-5 p-5 lg:p-10 grid grid-cols-[2fr_1fr_1fr] gap-2 items-center rounded-xl shadow-xl">
-            <div>
-                <h2 class="text-xl lg:text-2xl font-bold">{{product.name}}</h2>
-                <p>{{product.description}}</p>
-            </div>
-            <p class="text-2xl font-bold justify-self-end">
-                <span class="price text-3xl lg:text-4xl">{{product.price}}</span>€
-            </p>
-            <div class="flex flex-row justify-end items-center">
-                <input class="mx-2" id="{{product.id}}" type="checkbox" [checked] = "product.quantity" (change)="changeProduct($event, index)">
-                <label for="{{product.id}}">Agrega</label>
-            </div>
-            @for(subproduct of product.products; track subproduct.id; let index2 = $index){
-                <div class="col-span-3 flex flex-row justify-end items-center gap-5">
-                    <label class="" for="lang-quantity">Número de {{subproduct.name}}:</label>
-                    <div class="flex flex-row gap-2 items-center">
-                        <button type="button" (click)="substract(index, index2)"><img class="w-5" src="assets/minus.png" alt="restar"></button>
-                        <input class="p-1 w-12 justify-self-end text-center border rounded-md border-gray-300" type="number" id="lang-quantity" [value]="subproduct.quantity" readonly>
-                        <button type="button" (click)="add(index, index2)"><img class="w-5" src="assets/add.png" alt="sumar" ></button>
-                    </div>
-                </div>                <!-- <app-panel class="col-span-3" (numPagesChange)="changeNumPages($event)" (numLangsChange)="changeNumLangs($event)"></app-panel> -->
-            }
-        </article>
+        <app-product [parentIndex]="index" [product] = "product"></app-product>
     }
-    <!-- <h2 class="text-4xl">Pages: {{totalPages}} - Languages: {{totalLangs}}</h2> -->
     <article class="px-2 py-5">
         <p class="text-right text-xl lg:text-2xl font-bold">Precio presupuestado: <span class="total-budget text-3xl lg:text-4xl">{{totalBudget()}}</span>€</p>
     </article>

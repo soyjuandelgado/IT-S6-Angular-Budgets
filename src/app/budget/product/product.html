@@ -1,18 +1,16 @@
 <article class="my-5 p-5 lg:p-10 grid grid-cols-[2fr_1fr_1fr] gap-2 items-center rounded-xl shadow-xl">
     <div>
-        <h2 class="text-xl lg:text-2xl font-bold">{{product()?.name}}</h2>
-        <p>{{product()?.description}}</p>
+        <h2 class="text-xl lg:text-2xl font-bold">{{product().name}}</h2>
+        <p>{{product().description}}</p>
     </div>
     <p class="text-2xl font-bold justify-self-end">
-        <span class="price text-3xl lg:text-4xl">{{product()?.price}}</span>€
+        <span class="price text-3xl lg:text-4xl">{{product().price}}</span>€
     </p>
     <div class="flex flex-row justify-end items-center">
-        <input class="mx-2" id="{{product()?.id}}" type="checkbox" [checked] = "product()!.quantity"> <!-- [formControl]="doWeb" no puede ir a la vez que checked; (change)="calculateTotal()"-->
-        <label for="{{product()?.id}}">Agrega</label>
+        <input class="mx-2" id="{{product().id}}" type="checkbox" [checked] = "product().quantity" (change)="changeProduct($event)">
+        <label for="{{product().id}}">Agrega</label>
     </div>
-    @for(product of product()?.products; track product.id; let index = $index){
-        <!-- <app-panel class="col-span-3" (numPagesChange)="changeNumPages($event)" (numLangsChange)="changeNumLangs($event)"></app-panel> -->
-        <app-panel class="col-span-3" [product]="product"></app-panel>
+    @for(subproduct of product().products; track subproduct.id; let index2 = $index){
+        <app-panel class="col-span-3" [parentIndex]="parentIndex()" [productIndex]="index2" [product] = "subproduct"></app-panel>
     }
 </article>
-<p class="text-right text-xl lg:text-2xl font-bold">Precio: <span class="total-budget text-3xl lg:text-4xl">{{totalBudget()}}</span>€</p>
