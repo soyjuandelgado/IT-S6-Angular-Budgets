@@ -56,34 +56,4 @@ export class Budget {
     this.products.set(arr);
   }
 
-  // seoPrice = 300;
-  // adsPrice = 400;
-  // webPrice = 500;
-  // totalPages = 1;
-  // totalLangs = 1;
-
-  // doSEO = new FormControl(false);
-  // doAds = new FormControl(false);
-  // doWeb = new FormControl(false);
-
-  // calculateTotal() {
-  //   let total = 0;
-  //   total += this.doSEO.value? this.seoPrice: 0;
-  //   total += this.doAds.value? this.adsPrice: 0;
-  //   if (this.doWeb.value){
-  //     total += this.webPrice;
-  //     total += (this.totalPages + this.totalLangs) * 30;
-  //   }
-  //   this.totalBudget = total;
-  // }
-
-  // changeNumPages(value: number){
-  //   this.totalPages = value;
-  //   this.calculateTotal()
-  // }
-
-  // changeNumLangs(value: number){
-  //   this.totalLangs = value;
-  //   this.calculateTotal()
-  // }
 }
