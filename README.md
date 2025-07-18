@@ -53,11 +53,11 @@ PENDIENTE
 PENDIENTE
 
 - HTML
-- SASS
+- Tailwind
 - Typescript
 - Angular
-- Tailwind
 - Eslint
+- Karma
 
 ## 📋Requisitos
 
