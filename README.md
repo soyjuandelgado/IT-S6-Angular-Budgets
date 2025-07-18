@@ -55,6 +55,9 @@ PENDIENTE
   - `productAmount()`
   - `productListAmount()`
 - Tests del componente `budget`
+- Tests del componente `product`
+
+<img src="public/ex4.png" width="500">
 
 ## 💻Tecnologías Utilizadas
 
