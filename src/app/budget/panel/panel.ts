@@ -1,4 +1,4 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, inject, input, signal } from '@angular/core';
 import { IProduct } from '../iproduct';
 import { BudgetProducts } from '../budget-products';
 
@@ -20,6 +20,7 @@ export class Panel {
     price: 303,
     quantity: 0,
   });
+  showModal = false;
 
   substract() {
     const value =
@@ -40,4 +41,20 @@ export class Panel {
     arr[this.parentIndex()].products![this.productIndex()].quantity = value;
     this.products.set(arr);
   }
+
+  openInformation() {
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
+  }
+
+  // @HostListener('document:keydown.escape', ['$event'])
+  // onKeydownHandler(event: KeyboardEvent) {
+  //   // La acción de cerrar solo se ejecuta si el modal está abierto
+  //   if (this.showModal) {
+  //     this.closeModal();
+  //   }
+  // }
 }

@@ -7,12 +7,14 @@
   - [📄Descripción](#descripción)
     - [1. Creación del formulario](#1-creación-del-formulario)
     - [2. Añadir páginas e idiomas](#2-añadir-páginas-e-idiomas)
+    - [3. Mostrar ventana de información](#3-mostrar-ventana-de-información)
   - [💻Tecnologías Utilizadas](#tecnologías-utilizadas)
   - [📋Requisitos](#requisitos)
   - [🛠️Instalación](#️instalación)
     - [1. Descargar el repositorio](#1-descargar-el-repositorio)
     - [2. Instalación de paquetes Node.js](#2-instalación-de-paquetes-nodejs)
   - [▶️Ejecución](#️ejecución)
+  - [📸 Demo](#-demo)
 
 ## 📄Descripción
 
@@ -35,6 +37,16 @@ PENDIENTE
 - Mover datos a archivo de datos
 
 <img src="public/ex2.png" width="500">
+
+### 3. Mostrar ventana de información
+
+- Crear ventana modal que muestre título y descripción.
+- Añadir botones de info al panel.
+- Abrir aviso al hacer clic en info.
+- Cerrar la ventana,
+- Cargar datos del panel a la ventana modal.
+
+<img src="public/ex3.png" width="500">
 
 ## 💻Tecnologías Utilizadas
 
@@ -70,4 +82,10 @@ npm install
 
 ## ▶️Ejecución
 
-Visitar la web: [Web](https://it-s5-angular-on-boarding.vercel.app/)
+```shell
+ng serve -o
+```
+
+## 📸 Demo
+
+Visitar la web: [Web](https://it-s6-angular-budgets-git-develop-juans-projects-c1221148.vercel.app/)
