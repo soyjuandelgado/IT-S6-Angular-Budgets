@@ -15,6 +15,7 @@
     - [1. Descargar el repositorio](#1-descargar-el-repositorio)
     - [2. Instalación de paquetes Node.js](#2-instalación-de-paquetes-nodejs)
   - [▶️Ejecución](#️ejecución)
+    - [Testing](#testing)
   - [📸 Demo](#-demo)
 
 ## 📄Descripción
@@ -93,6 +94,12 @@ npm install
 
 ```shell
 ng serve -o
+```
+
+### Testing
+
+```shell
+ng test
 ```
 
 ## 📸 Demo
