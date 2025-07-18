@@ -1,9 +1,29 @@
+<div class="fixed inset-0 bg-gray-300/75 flex items-center justify-center z-50" [hidden]="!showModal"
+    (click)="closeModal()">
+    <div class="bg-white rounded-lg shadow-lg p-10 w-120">
+        <!-- Título -->
+        <div class="flex justify-between items-center mb-4">
+            <h2 class="text-xl font-bold">{{product().name}}</h2>
+            <button (click)="closeModal()" class="text-gray-500 hover:text-black text-2xl leading-none">&times;
+            </button>
+        </div>
+
+        <div>
+            <p class="text-gray-700">{{product().description + product().price}}€</p>
+        </div>
+    </div>
+</div>
+
 <div class="col-span-3 flex flex-row justify-end items-center gap-5">
-    <button type="button" (click)="openInformation()"><img class="w-5 hover:scale-120 active:scale-90" src="assets/information_color.png" alt="informacion"></button>
+    <button type="button" (click)="openInformation()"><img class="w-5 hover:scale-120 active:scale-90"
+            src="assets/information_color.png" alt="informacion"></button>
     <label class="" for="lang-quantity">Número de {{product().name}}:</label>
     <div class="flex flex-row gap-2 items-center">
-        <button type="button" (click)="substract()"><img class="w-5 hover:scale-120 active:scale-90" src="assets/minus.png" alt="restar"></button>
-        <input class="p-1 w-12 justify-self-end text-center border rounded-md border-gray-300" type="number" id="lang-quantity" [value]="product().quantity" readonly>
-        <button type="button" (click)="add()"><img class="w-5 hover:scale-120 active:scale-90" src="assets/add.png" alt="sumar" ></button>
+        <button type="button" (click)="substract()"><img class="w-5 hover:scale-120 active:scale-90"
+                src="assets/minus.png" alt="restar"></button>
+        <input class="p-1 w-12 justify-self-end text-center border rounded-md border-gray-300" type="number"
+            id="lang-quantity" [value]="product().quantity" readonly>
+        <button type="button" (click)="add()"><img class="w-5 hover:scale-120 active:scale-90" src="assets/add.png"
+                alt="sumar"></button>
     </div>
 </div>

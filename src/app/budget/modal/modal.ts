@@ -1,0 +1,20 @@
+import { Component, Signal, signal } from '@angular/core';
+
+@Component({
+  selector: 'app-modal',
+  imports: [],
+  templateUrl: './modal.html',
+  styleUrl: './modal.scss',
+})
+export class Modal {
+  show = signal(true);
+  title = '';
+  description = '';
+  openInformation() {
+    this.show.set(true);
+  }
+
+  closeModal() {
+    this.show.set(false);
+  }
+}
