@@ -8,6 +8,7 @@
     - [1. Creación del formulario](#1-creación-del-formulario)
     - [2. Añadir páginas e idiomas](#2-añadir-páginas-e-idiomas)
     - [3. Mostrar ventana de información](#3-mostrar-ventana-de-información)
+    - [4. Testing](#4-testing)
   - [💻Tecnologías Utilizadas](#tecnologías-utilizadas)
   - [📋Requisitos](#requisitos)
   - [🛠️Instalación](#️instalación)
@@ -48,16 +49,21 @@ PENDIENTE
 
 <img src="public/ex3.png" width="500">
 
-## 💻Tecnologías Utilizadas
+### 4. Testing
 
-PENDIENTE
+- Tests del servicio `budget-products`
+  - `productAmount()`
+  - `productListAmount()`
+- Tests del componente `budget`
+
+## 💻Tecnologías Utilizadas
 
 - HTML
 - Tailwind
 - Typescript
 - Angular
 - Eslint
-- Karma
+- Karma / Jasmine
 
 ## 📋Requisitos
 
