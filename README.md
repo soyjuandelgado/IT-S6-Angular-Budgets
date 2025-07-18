@@ -8,12 +8,14 @@
     - [1. Creación del formulario](#1-creación-del-formulario)
     - [2. Añadir páginas e idiomas](#2-añadir-páginas-e-idiomas)
     - [3. Mostrar ventana de información](#3-mostrar-ventana-de-información)
+    - [4. Testing](#4-testing)
   - [💻Tecnologías Utilizadas](#tecnologías-utilizadas)
   - [📋Requisitos](#requisitos)
   - [🛠️Instalación](#️instalación)
     - [1. Descargar el repositorio](#1-descargar-el-repositorio)
     - [2. Instalación de paquetes Node.js](#2-instalación-de-paquetes-nodejs)
   - [▶️Ejecución](#️ejecución)
+    - [Testing](#testing)
   - [📸 Demo](#-demo)
 
 ## 📄Descripción
@@ -48,16 +50,24 @@ PENDIENTE
 
 <img src="public/ex3.png" width="500">
 
+### 4. Testing
+
+- Tests del servicio `budget-products`
+  - `productAmount()`
+  - `productListAmount()`
+- Tests del componente `budget`
+- Tests del componente `product`
+
+<img src="public/ex4.png" width="500">
+
 ## 💻Tecnologías Utilizadas
 
-PENDIENTE
-
 - HTML
-- SASS
+- Tailwind
 - Typescript
 - Angular
-- Tailwind
 - Eslint
+- Karma / Jasmine
 
 ## 📋Requisitos
 
@@ -84,6 +94,12 @@ npm install
 
 ```shell
 ng serve -o
+```
+
+### Testing
+
+```shell
+ng test
 ```
 
 ## 📸 Demo
