@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { BudgetProducts } from './budget-products';
 import { Product } from './product/product';
+import { Client } from "./client/client";
 
 @Component({
   selector: 'app-budget',
-  imports: [Product],
+  imports: [Product, Client],
   templateUrl: './budget.html',
   styleUrl: './budget.scss',
 })
