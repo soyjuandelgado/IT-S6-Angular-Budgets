@@ -42,8 +42,10 @@ export class Client {
       });
       console.log(this.client())
       console.log(this.budgetServ.client())
-      //alert('Datos correctos');
-      this.clientForm.reset();
+      if(this.budgetServ.save())
+        this.clientForm.reset();
+      else  
+        alert("Agregue algún producto antes de solicitar presupuesto.")
     }
   }
 }
