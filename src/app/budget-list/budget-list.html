@@ -1,0 +1,22 @@
+<h2 class="text-start text-xl lg:text-2xl font-bold">Presupuestos en Curso:</h2>
+@for (budget of budgets(); track $index) {
+    <h3 class="text-start text-l lg:text-xl font-bold">{{budget.client.name}}</h3>
+    <p>{{budget.client.email}}</p>
+    <p>{{budget.client.phone}}</p>
+    <p>Servicios:</p>
+    <ul>
+        @for (product of budget.products; track $index) {
+            @if (product.quantity>0) {
+                <li>{{product.name}}</li>
+                @for (subproduct of product.products; track $index) {
+                    @if (subproduct.quantity>0) {
+                        <li>{{subproduct.name}}:{{subproduct.quantity}}</li>
+                    }
+                }
+
+            }
+        }
+    </ul>
+    <p>Total:</p>
+    <h3 class="text-start text-l lg:text-xl font-bold">{{budget.total}}€</h3>
+}
