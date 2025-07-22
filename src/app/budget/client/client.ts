@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { BudgetProducts } from '../budget-products';
 
 @Component({
   selector: 'app-client',
@@ -13,6 +14,8 @@ import {
   styleUrl: './client.scss',
 })
 export class Client {
+  budgetServ = inject(BudgetProducts);
+  client = this.budgetServ.client;
   name = new FormControl('', [Validators.required, Validators.minLength(3)]);
   phone = new FormControl('', [
     Validators.required,
@@ -23,16 +26,24 @@ export class Client {
     Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/),
   ]);
 
-  client = new FormGroup({
+  clientForm = new FormGroup({
     name: this.name,
     phone: this.phone,
-    email: this.email
+    email: this.email,
   });
 
   save() {
-    if (this.client.valid) {
-      alert('Datos correctos');
-      this.client.reset();
+    if (this.clientForm.valid) {
+      this.client.update((c) => {
+        c.name = this.name.value!;
+        c.phone = this.phone.value!;
+        c.email = this.email.value!;
+        return c;
+      });
+      console.log(this.client())
+      console.log(this.budgetServ.client())
+      //alert('Datos correctos');
+      this.clientForm.reset();
     }
   }
 }

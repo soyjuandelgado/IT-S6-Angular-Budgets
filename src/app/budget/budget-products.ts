@@ -1,12 +1,14 @@
 import { computed, Injectable, signal } from '@angular/core';
 import { IProduct } from './iproduct';
 import { PRODUCTS_DATA } from '../data/products-base';
+import { IClient } from './iclient';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BudgetProducts {
   list = signal<IProduct[]>(PRODUCTS_DATA);
+  client = signal<IClient>({name:"", phone:"", email:""})
 
   total = computed(() => {
     console.log(this.list());
@@ -28,4 +30,6 @@ export class BudgetProducts {
     }
     return total;
   }
+
+  
 }
