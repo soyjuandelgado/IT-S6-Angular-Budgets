@@ -49,7 +49,8 @@ export class BudgetProducts {
   }
 
   createBudget = (): IBudget => ({
-    products: [...this.list()],
+    //products: [...this.list()],
+    products: JSON.parse(JSON.stringify(this.list())), //Copia profunda
     client: { ...this.client() },
     total: this.total(),
   });
