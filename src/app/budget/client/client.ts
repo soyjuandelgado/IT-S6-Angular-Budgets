@@ -42,7 +42,7 @@ export class Client {
       });
       console.log(this.client())
       console.log(this.budgetServ.client())
-      if(this.budgetServ.save())
+      if(this.budgetServ.saveBudget())
         this.clientForm.reset();
       else  
         alert("Agregue algún producto antes de solicitar presupuesto.")

@@ -8,9 +8,9 @@ import { IBudget } from './ibudget';
   providedIn: 'root',
 })
 export class BudgetProducts {
+  budgets = signal<IBudget[]>([]);
   list = signal<IProduct[]>(PRODUCTS_DATA);
   client = signal<IClient>({ name: '', phone: '', email: '' });
-
   total = computed(() => {
     console.log(this.list());
     return this.productListAmount(this.list());
@@ -32,19 +32,29 @@ export class BudgetProducts {
     return total;
   }
 
-  save() {
+  saveBudget() {
     if (!this.productsSelected()) return false;
-    //const budget = this.createBudget();
+    this.appendBudget();
     this.resetBudget();
+    console.log(this.budgets());
     return true;
   }
 
-  productsSelected = () => this.list().filter((prod) => prod.quantity > 0).length > 0;
+  productsSelected = () =>
+    this.list().filter((prod) => prod.quantity > 0).length > 0;
 
   resetBudget() {
     this.list.set(PRODUCTS_DATA);
     this.client.set({ name: '', phone: '', email: '' });
   }
 
-  createBudget = ():IBudget => ({ products: [...this.list()], client: {...this.client()}, total: this.total()});
+  createBudget = (): IBudget => ({
+    products: [...this.list()],
+    client: { ...this.client() },
+    total: this.total(),
+  });
+
+  appendBudget = () => {
+    this.budgets.update((budget) => [...budget, this.createBudget()]);
+  };
 }
