@@ -2,6 +2,9 @@
     <br class="my-5">
     <article class="p-5 pt-10 border-t border-dashed">
         <h2 class="text-start text-xl lg:text-2xl font-bold">Presupuestos en Curso:</h2>
+        <button (click) = "budgetServ.orderBudgetsByName()">Nombre</button>
+        <button (click) = "budgetServ.orderBudgetsByTotal()">Precio</button>
+        <button (click) = "budgetServ.orderBudgetsByDate()">Fecha</button>        
     </article>
 }
     @for (budget of budgets(); track $index) {
