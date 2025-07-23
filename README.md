@@ -9,6 +9,7 @@
     - [2. Añadir páginas e idiomas](#2-añadir-páginas-e-idiomas)
     - [3. Mostrar ventana de información](#3-mostrar-ventana-de-información)
     - [4. Testing](#4-testing)
+    - [5. Lista de presupuestos](#5-lista-de-presupuestos)
   - [💻Tecnologías Utilizadas](#tecnologías-utilizadas)
   - [📋Requisitos](#requisitos)
   - [🛠️Instalación](#️instalación)
@@ -59,6 +60,19 @@ PENDIENTE
 - Tests del componente `product`
 
 <img src="public/ex4.png" width="500">
+
+### 5. Lista de presupuestos
+
+- Añadir formulario con datos de cliente
+- Validar formulario
+- Guardar presupuesto en servicio
+- Mostrar lista de presupuestos
+- Formatear componentes
+
+<img src="public/ex5.png" width="400">
+<img src="public/ex5-error.png" width="400">
+<img src="public/ex5-mobile.png" width="200">
+<img src="public/ex5-mobile-list.png" width="200">
 
 ## 💻Tecnologías Utilizadas
 
