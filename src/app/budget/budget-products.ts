@@ -53,9 +53,11 @@ export class BudgetProducts {
     products: JSON.parse(JSON.stringify(this.list())), //Copia profunda
     client: { ...this.client() },
     total: this.total(),
+    date: new Date()
   });
 
   appendBudget = () => {
     this.budgets.update((budget) => [...budget, this.createBudget()]);
   };
+
 }
