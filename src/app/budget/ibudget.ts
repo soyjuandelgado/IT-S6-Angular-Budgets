@@ -5,4 +5,5 @@ export interface IBudget {
     products: IProduct[]
     client: IClient
     total: number
+    date: Date
 }

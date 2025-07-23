@@ -53,9 +53,33 @@ export class BudgetProducts {
     products: JSON.parse(JSON.stringify(this.list())), //Copia profunda
     client: { ...this.client() },
     total: this.total(),
+    date: new Date(),
   });
 
   appendBudget = () => {
     this.budgets.update((budget) => [...budget, this.createBudget()]);
   };
+
+  orderBudgetsByName() {
+    this.budgets.set(
+      this.budgets().sort((b1, b2) =>
+        b1.client.name < b2.client.name ? -1 : 1
+      )
+    );
+  }
+
+  orderBudgetsByTotal() {
+    this.budgets.set(
+      this.budgets().sort((b1, b2) =>
+        b1.total - b2.total
+      )
+    );
+  }
+  orderBudgetsByDate() {
+    this.budgets.set(
+      this.budgets().sort((b1, b2) =>
+        b1.date.getTime() - b2.date.getTime()
+      )
+    );
+  }
 }
