@@ -1,0 +1,37 @@
+@if (budgets().length > 0) {
+    <br class="my-5">
+    <article class="p-5 pt-10 border-t border-dashed">
+        <h2 class="text-start text-xl lg:text-2xl font-bold">Presupuestos en Curso:</h2>
+    </article>
+}
+    @for (budget of budgets(); track $index) {
+        <article class="my-5 p-5 grid grid-cols-[2fr_2fr_1fr] gap-2 justify-between rounded-xl shadow-xl border border-gray-100">
+            <div>
+                <h3 class="text-start text-l lg:text-xl font-bold">{{budget.client.name}}</h3>
+                <p>{{budget.client.email}}</p>
+                <p>{{budget.client.phone}}</p>
+            </div>
+            <div>
+                <p class="font-bold">Servicios contratados:</p>
+                <ul class="list-disc pl-5">
+                    @for (product of budget.products; track $index) {
+                        @if (product.quantity>0) {
+                            <li>{{product.name}}</li>
+                            @for (subproduct of product.products; track $index) {
+                                <ul class="list-disc pl-5">
+                                @if (subproduct.quantity>0) {
+                                    <li>{{subproduct.name}}:{{subproduct.quantity}}</li>
+                                }
+                                </ul>
+                            }
+    
+                        }
+                    }
+                </ul>
+            </div>
+            <div class="justify-self-center flex flex-col">
+                <p class="text-center">Total:</p>
+                <h3 class="py-2 text-center text-2xl font-bold"><span class="price text-3xl lg:text-4xl">{{budget.total}}</span>€</h3>
+            </div>
+        </article>
+    }
