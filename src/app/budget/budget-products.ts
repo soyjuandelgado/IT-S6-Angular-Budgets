@@ -1,14 +1,15 @@
 import { computed, Injectable, signal } from '@angular/core';
 import { IProduct } from './iproduct';
-import { PRODUCTS_DATA } from '../data/products-base';
 import { IClient } from './iclient';
 import { IBudget } from './ibudget';
+import { PRODUCTS_DATA } from '../data/products-base';
+import { BUDGETS_TEST_LIST } from '../data/budgets-test';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BudgetProducts {
-  budgets = signal<IBudget[]>([]);
+  budgets = signal<IBudget[]>(BUDGETS_TEST_LIST);
   list = signal<IProduct[]>(PRODUCTS_DATA);
   client = signal<IClient>({ name: '', phone: '', email: '' });
   total = computed(() => {
@@ -69,17 +70,14 @@ export class BudgetProducts {
   }
 
   orderBudgetsByTotal() {
-    this.budgets.set(
-      this.budgets().sort((b1, b2) =>
-        b1.total - b2.total
-      )
-    );
+    this.budgets.set(this.budgets().sort((b1, b2) => b1.total - b2.total));
   }
   orderBudgetsByDate() {
     this.budgets.set(
-      this.budgets().sort((b1, b2) =>
-        b1.date.getTime() - b2.date.getTime()
-      )
+      this.budgets().sort((b1, b2) => b1.date.getTime() - b2.date.getTime())
     );
+  }
+  filterBudgetsByName(text: string): IBudget[] {
+    return this.budgets().filter((budget) => budget.client.name.toLowerCase().includes(text.toLowerCase()));
   }
 }
