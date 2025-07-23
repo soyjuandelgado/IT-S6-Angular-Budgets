@@ -1,11 +1,23 @@
 @if (budgets().length > 0) {
     <br class="my-5">
-    <article class="p-5 pt-10 border-t border-dashed">
+    <article class="p-5 pt-10 border-t border-dashed flex flex-row justify-between items-center">
         <h2 class="text-start text-xl lg:text-2xl font-bold">Presupuestos en Curso:</h2>
-        <button (click) = "budgetServ.orderBudgetsByName()">Nombre</button>
-        <button (click) = "budgetServ.orderBudgetsByTotal()">Precio</button>
-        <button (click) = "budgetServ.orderBudgetsByDate()">Fecha</button>        
+        <div class="flex flex-row gap-2 items-center">
+            <div>
+                <input type="radio" name="orderBy" id="orderByName" value="name" class="peer hidden">
+                <label for="orderByName" class="px-2 w-full text-center border border-blue-500 rounded-md peer-checked:bg-blue-500 peer-checked:text-white" (click) = "budgetServ.orderBudgetsByName()">Nombre</label>
+            </div>
+            <div>
+                <input type="radio" name="orderBy" id="orderByTotal" value="total" class="peer hidden">
+                <label for="orderByTotal" class="px-2 w-full text-center border border-blue-500 rounded-md peer-checked:bg-blue-500 peer-checked:text-white" (click) = "budgetServ.orderBudgetsByTotal()">Precio</label>
+            </div>
+            <div>
+                <input type="radio" name="orderBy" id="orderByDate" value="date" class="peer hidden">
+                <label for="orderByDate" class="px-2 w-full text-center border border-blue-500 rounded-md peer-checked:bg-blue-500 peer-checked:text-white" (click) = "budgetServ.orderBudgetsByDate()">Fecha</label>
+            </div>
+        </div>
     </article>
+
 }
     @for (budget of budgets(); track $index) {
         <article class="my-5 p-5 grid grid-cols-[2fr_2fr_1fr] gap-2 justify-between rounded-xl shadow-xl border border-gray-100">
