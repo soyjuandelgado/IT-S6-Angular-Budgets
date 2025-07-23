@@ -10,6 +10,7 @@
     - [3. Mostrar ventana de información](#3-mostrar-ventana-de-información)
     - [4. Testing](#4-testing)
     - [5. Lista de presupuestos](#5-lista-de-presupuestos)
+    - [6. Ordenar presupuestos](#6-ordenar-presupuestos)
   - [💻Tecnologías Utilizadas](#tecnologías-utilizadas)
   - [📋Requisitos](#requisitos)
   - [🛠️Instalación](#️instalación)
@@ -73,6 +74,17 @@ PENDIENTE
 <img src="public/ex5-error.png" width="400">
 <img src="public/ex5-mobile.png" width="200">
 <img src="public/ex5-mobile-list.png" width="200">
+
+### 6. Ordenar presupuestos
+
+- Hacer funciones de ordenación en el servicio
+  - `orderBudgetsByName()`
+  - `orderBudgetsByTotal()`
+  - `orderBudgetsByDate()`
+- Añadir botones de ordenación y darle estilos
+- Cambiar botones por input radio
+
+<img src="public/ex6.png" width="500">
 
 ## 💻Tecnologías Utilizadas
 
