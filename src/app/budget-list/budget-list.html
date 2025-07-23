@@ -32,13 +32,13 @@
 
 @for (budget of filteredBudgets(); track $index) {
 <article
-    class="my-5 p-5 grid grid-cols-[2fr_2fr_1fr] gap-2 justify-between rounded-xl shadow-xl border border-gray-100">
-    <div>
-        <h3 class="text-start text-l lg:text-xl font-bold">{{budget.client.name}}</h3>
-        <p>{{budget.client.email}}</p>
-        <p>{{budget.client.phone}}</p>
+    class="my-5 p-5 grid grid-cols-1 lg:grid-cols-[2fr_2fr_1fr] gap-2 justify-between rounded-xl shadow-xl border border-gray-100">
+    <div class="w-full flex flex-col justify-between">
+        <h3 class="flex-1 text-start text-l lg:text-xl font-bold">{{budget.client.name}}</h3>
+        <p class="flex-1" >{{budget.client.email}}</p>
+        <p class="flex-1 " >{{budget.client.phone}}</p>
     </div>
-    <div>
+    <div class="w-full">
         <p class="font-bold">Servicios contratados:</p>
         <ul class="list-disc pl-5">
             @for (product of budget.products; track $index) {
@@ -55,8 +55,8 @@
             }
         </ul>
     </div>
-    <div class="justify-self-center flex flex-col">
-        <p class="text-center">Total:</p>
+    <div class="w-full justify-between lg:justify-start items-center flex flex-row lg:flex-col">
+        <p class="text-center font-bold">Total:</p>
         <h3 class="py-2 text-center text-2xl font-bold"><span
                 class="price text-3xl lg:text-4xl">{{budget.total}}</span>€</h3>
     </div>
