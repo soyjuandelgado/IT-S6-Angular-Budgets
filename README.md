@@ -11,6 +11,7 @@
     - [4. Testing](#4-testing)
     - [5. Lista de presupuestos](#5-lista-de-presupuestos)
     - [6. Ordenar presupuestos](#6-ordenar-presupuestos)
+    - [7. Filtrar presupuestos](#7-filtrar-presupuestos)
   - [💻Tecnologías Utilizadas](#tecnologías-utilizadas)
   - [📋Requisitos](#requisitos)
   - [🛠️Instalación](#️instalación)
@@ -22,35 +23,35 @@
 
 ## 📄Descripción
 
-PENDIENTE
+Página web para generar presupuestos de desarrollo. Permite guardar los presupuestos con los datos del cliente, ordenarlos y filtrarlos.
 
 ### 1. Creación del formulario
 
-- Maquetar web inicial
-- Crear un formulario con tres bloques: SEO, Ads y Web
+- Maquetar web inicial.
+- Crear un formulario con tres bloques: SEO, Ads y Web.
 - Al hacer activar los checks, se suman los precios al total del presupuesto.
 
 ### 2. Añadir páginas e idiomas
 
-- En el elemento Web, añadir el número de páginas y de idiomas
-- Añadir botones para subir y bajar los valores de páginas e idiomas
-- Calcular el presupuesto con los elementos nuevos
+- En el elemento Web, añadir el número de páginas y de idiomas.
+- Añadir botones para subir y bajar los valores de páginas e idiomas.
+- Calcular el presupuesto con los elementos nuevos.
 - Separar en componentes: budget, product y panel.
-- Implementar signal para gestionar cambios
-- Mover cálculos a servicio
-- Mover datos a archivo de datos
+- Implementar signal para gestionar cambios.
+- Mover cálculos a servicio.
+- Mover datos a archivo de datos.
 
-<img src="public/ex2.png" width="500">
+<img src="public/ex2.png" width="500" style="margin-top: 1rem; margin-bottom: 1rem;">
 
 ### 3. Mostrar ventana de información
 
 - Crear ventana modal que muestre título y descripción.
 - Añadir botones de info al panel.
 - Abrir aviso al hacer clic en info.
-- Cerrar la ventana,
+- Cerrar la ventana.
 - Cargar datos del panel a la ventana modal.
 
-<img src="public/ex3.png" width="500">
+<img src="public/ex3.png" width="500" style="margin-top: 1rem; margin-bottom: 1rem;">
 
 ### 4. Testing
 
@@ -60,31 +61,50 @@ PENDIENTE
 - Tests del componente `budget`
 - Tests del componente `product`
 
-<img src="public/ex4.png" width="500">
+<img src="public/ex4.png" width="500" style="margin-top: 1rem; margin-bottom: 1rem;">
 
 ### 5. Lista de presupuestos
 
-- Añadir formulario con datos de cliente
-- Validar formulario
-- Guardar presupuesto en servicio
-- Mostrar lista de presupuestos
-- Formatear componentes
+- Añadir formulario con datos de cliente.
+- Validar formulario.
+- Guardar presupuesto en servicio.
+- Mostrar lista de presupuestos.
+- Formatear componentes.
 
-<img src="public/ex5.png" width="400">
-<img src="public/ex5-error.png" width="400">
-<img src="public/ex5-mobile.png" width="200">
-<img src="public/ex5-mobile-list.png" width="200">
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; margin-top: 1rem;">
+  <img src="public/ex5.png" width="400" style="vertical-align: top;">
+  <img src="public/ex5-error.png" width="400" style="vertical-align: top;">
+</div>
+
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; margin-top: 1rem; margin-bottom: 1rem">
+  <img src="public/ex5-mobile.png" width="200" style="vertical-align: top;">
+  <img src="public/ex5-mobile-list.png" width="200" style="vertical-align: top;">
+</div>
 
 ### 6. Ordenar presupuestos
 
-- Hacer funciones de ordenación en el servicio
-  - `orderBudgetsByName()`
-  - `orderBudgetsByTotal()`
-  - `orderBudgetsByDate()`
-- Añadir botones de ordenación y darle estilos
-- Cambiar botones por input radio
+- Hacer funciones de ordenación en el servicio.
+  - `orderBudgetsByName()`.
+  - `orderBudgetsByTotal()`.
+  - `orderBudgetsByDate()`.
+- Añadir botones de ordenación y darle estilos.
+- Cambiar botones por input radio.
 
-<img src="public/ex6.png" width="500">
+<img src="public/ex6.png" width="500" style="margin-top: 1rem; margin-bottom: 1rem;">
+
+### 7. Filtrar presupuestos
+
+- Añadir formulario de búsqueda.
+- Función de búsqueda en servicio.
+- Copia de estructura de datos para evitar modificaciones.
+- Eventos y computación con signals.
+- Mejora en la visualización móvil.
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; margin-top: 1rem;">
+  <img src="public/ex7.png" width="500" style="vertical-align: top;">
+  <img src="public/ex7-mobile.png" width="200" style="vertical-align: top;">
+</div>
 
 ## 💻Tecnologías Utilizadas
 
@@ -101,8 +121,6 @@ PENDIENTE
 - Node.js
   
 ## 🛠️Instalación
-
-PENDIENTE
 
 ### 1. Descargar el repositorio
 
