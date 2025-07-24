@@ -1,5 +1,5 @@
 import { Component, computed, inject, input, signal } from '@angular/core';
-import { BudgetProducts } from '../budget/budget-products';
+import { BudgetProducts } from '../shared/services/budget-products';
 
 @Component({
   selector: 'app-budget-list',

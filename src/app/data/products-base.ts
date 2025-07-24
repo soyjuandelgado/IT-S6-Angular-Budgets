@@ -1,4 +1,4 @@
-import { IProduct } from "../budget/iproduct";
+import { IProduct } from "../shared/models/iproduct";
 
 export const PRODUCTS_DATA: IProduct[] =[
     {

@@ -1,6 +1,6 @@
 import { Component, inject, input } from '@angular/core';
-import { IProduct } from '../iproduct';
-import { BudgetProducts } from '../budget-products';
+import { IProduct } from '../../shared/models/iproduct';
+import { BudgetProducts } from '../../shared/services/budget-products';
 
 @Component({
   selector: 'app-panel',

@@ -5,7 +5,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { BudgetProducts } from '../budget-products';
+import { BudgetProducts } from '../../shared/services/budget-products';
 
 @Component({
   selector: 'app-client',

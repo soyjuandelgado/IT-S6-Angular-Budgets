@@ -1,9 +1,9 @@
 import { computed, Injectable, signal } from '@angular/core';
-import { IProduct } from './iproduct';
-import { IClient } from './iclient';
-import { IBudget } from './ibudget';
-import { PRODUCTS_DATA } from '../data/products-base';
-import { BUDGETS_TEST_LIST } from '../data/budgets-test';
+import { IProduct } from '../models/iproduct';
+import { IClient } from '../models/iclient';
+import { IBudget } from '../models/ibudget';
+import { PRODUCTS_DATA } from '../../data/products-base';
+import { BUDGETS_TEST_LIST } from '../../data/budgets-test';
 
 @Injectable({
   providedIn: 'root',
