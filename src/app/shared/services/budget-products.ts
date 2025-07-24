@@ -17,6 +17,17 @@ export class BudgetProducts {
     return this.productListAmount(this.list());
   });
 
+  params = computed(() => {
+    return this.list()
+      .filter((p) => p.quantity > 0)
+      .reduce((result, p) => {
+        result = result + `{${p.id}:${p.quantity}},`;
+        console.log("computed");
+        console.log(result);
+        return result;
+      }, '');
+  });
+
   productAmount(p: IProduct) {
     let total = p.price * p.quantity;
     total += this.productListAmount(p.products);

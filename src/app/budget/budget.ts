@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { BudgetProducts } from '../shared/services/budget-products';
 import { Product } from './product/product';
-import { Client } from "./client/client";
+import { Client } from './client/client';
 
 @Component({
   selector: 'app-budget',

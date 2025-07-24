@@ -1,4 +1,4 @@
-import { Component, computed, inject, input, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { BudgetProducts } from '../shared/services/budget-products';
 
 @Component({
