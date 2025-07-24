@@ -1,52 +1,64 @@
-@if (budgets().length > 0) {
-    <br class="my-5">
-    <article class="p-5 pt-10 border-t border-dashed flex flex-row justify-between items-center">
-        <h2 class="text-start text-xl lg:text-2xl font-bold">Presupuestos en Curso:</h2>
-        <div class="flex flex-row gap-2 items-center">
-            <div>
-                <input type="radio" name="orderBy" id="orderByName" value="name" class="peer hidden">
-                <label for="orderByName" class="px-2 w-full text-center border border-blue-500 rounded-md peer-checked:bg-blue-500 peer-checked:text-white" (click) = "budgetServ.orderBudgetsByName()">Nombre</label>
-            </div>
-            <div>
-                <input type="radio" name="orderBy" id="orderByTotal" value="total" class="peer hidden">
-                <label for="orderByTotal" class="px-2 w-full text-center border border-blue-500 rounded-md peer-checked:bg-blue-500 peer-checked:text-white" (click) = "budgetServ.orderBudgetsByTotal()">Precio</label>
-            </div>
-            <div>
-                <input type="radio" name="orderBy" id="orderByDate" value="date" class="peer hidden">
-                <label for="orderByDate" class="px-2 w-full text-center border border-blue-500 rounded-md peer-checked:bg-blue-500 peer-checked:text-white" (click) = "budgetServ.orderBudgetsByDate()">Fecha</label>
-            </div>
+<br class="my-5">
+<article
+    class="p-5 pt-10 w-full border-t border-dashed flex flex-col lg:flex-row justify-between items-start lg:items-center gap-5">
+    <h2 class="flex-1 text-start text-xl lg:text-2xl font-bold">Presupuestos en Curso:</h2>
+    <div class="flex-1 w-full">
+        <input type="search" placeholder="Busca"
+            class="block p-2 w-full text-left border rounded-md border-gray-300 placeholder-gray-400"
+            [value]="this.search()" (input)="setSearchValue($event)">
+    </div>
+    <div class="flex-1 w-full flex flex-row gap-2 justify-between items-center">
+        <div class="w-full flex-1">
+            <input type="radio" name="orderBy" id="orderByName" value="name" class="peer hidden">
+            <label for="orderByName"
+                class="block p-2 w-full text-center border border-blue-500 rounded-md peer-checked:bg-blue-500 peer-checked:text-white"
+                (click)="budgetServ.orderBudgetsByName()">Nombre</label>
         </div>
-    </article>
+        <div class="w-full flex-1">
+            <input type="radio" name="orderBy" id="orderByTotal" value="total" class="peer hidden">
+            <label for="orderByTotal"
+                class="block w-full p-2 text-center border border-blue-500 rounded-md peer-checked:bg-blue-500 peer-checked:text-white"
+                (click)="budgetServ.orderBudgetsByTotal()">Precio</label>
+        </div>
+        <div class="w-full flex-1">
+            <input type="radio" name="orderBy" id="orderByDate" value="date" class="peer hidden">
+            <label for="orderByDate"
+                class="block p-2 w-full text-center border border-blue-500 rounded-md peer-checked:bg-blue-500 peer-checked:text-white"
+                (click)="budgetServ.orderBudgetsByDate()">Fecha</label>
+        </div>
+    </div>
+</article>
 
-}
-    @for (budget of budgets(); track $index) {
-        <article class="my-5 p-5 grid grid-cols-[2fr_2fr_1fr] gap-2 justify-between rounded-xl shadow-xl border border-gray-100">
-            <div>
-                <h3 class="text-start text-l lg:text-xl font-bold">{{budget.client.name}}</h3>
-                <p>{{budget.client.email}}</p>
-                <p>{{budget.client.phone}}</p>
-            </div>
-            <div>
-                <p class="font-bold">Servicios contratados:</p>
-                <ul class="list-disc pl-5">
-                    @for (product of budget.products; track $index) {
-                        @if (product.quantity>0) {
-                            <li>{{product.name}}</li>
-                            @for (subproduct of product.products; track $index) {
-                                <ul class="list-disc pl-5">
-                                @if (subproduct.quantity>0) {
-                                    <li>{{subproduct.name}}:{{subproduct.quantity}}</li>
-                                }
-                                </ul>
+
+@for (budget of filteredBudgets(); track $index) {
+<article
+    class="my-5 p-5 grid grid-cols-1 lg:grid-cols-[2fr_2fr_1fr] gap-2 justify-between rounded-xl shadow-xl border border-gray-100">
+    <div class="w-full flex flex-col justify-between">
+        <h3 class="flex-1 text-start text-l lg:text-xl font-bold">{{budget.client.name}}</h3>
+        <p class="flex-1" >{{budget.client.email}}</p>
+        <p class="flex-1 " >{{budget.client.phone}}</p>
+    </div>
+    <div class="w-full">
+        <p class="font-bold">Servicios contratados:</p>
+        <ul class="list-disc pl-5">
+            @for (product of budget.products; track $index) {
+                @if (product.quantity > 0) {
+                    <li>{{product.name}}</li>
+                    @for (subproduct of product.products; track $index) {
+                        <ul class="list-disc pl-5">
+                            @if (subproduct.quantity > 0) {
+                                <li>{{subproduct.name}}: {{subproduct.quantity}}</li>
                             }
-    
-                        }
+                        </ul>
                     }
-                </ul>
-            </div>
-            <div class="justify-self-center flex flex-col">
-                <p class="text-center">Total:</p>
-                <h3 class="py-2 text-center text-2xl font-bold"><span class="price text-3xl lg:text-4xl">{{budget.total}}</span>€</h3>
-            </div>
-        </article>
-    }
+                }
+            }
+        </ul>
+    </div>
+    <div class="w-full justify-between lg:justify-start items-center flex flex-row lg:flex-col">
+        <p class="text-center font-bold">Total:</p>
+        <h3 class="py-2 text-center text-2xl font-bold"><span
+                class="price text-3xl lg:text-4xl">{{budget.total}}</span>€</h3>
+    </div>
+</article>
+}

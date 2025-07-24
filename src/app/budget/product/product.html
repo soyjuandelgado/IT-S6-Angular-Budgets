@@ -11,6 +11,6 @@
         <label for="{{product().id}}">Agrega</label>
     </div>
     @for(subproduct of product().products; track subproduct.id; let index2 = $index){
-        <app-panel class="col-span-3" [parentIndex]="parentIndex()" [productIndex]="index2" [product] = "subproduct"></app-panel>
+        <app-panel class="col-span-3" [parentIndex]="parentIndex()" [productIndex]="index2" [product] = "subproduct" [hidden] = "!product().quantity"></app-panel>
     }
 </article>
