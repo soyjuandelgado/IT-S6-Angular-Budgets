@@ -18,14 +18,20 @@ export class BudgetProducts {
   });
 
   params = computed(() => {
-    return this.list()
+    // const query: { [key: string]: string } = {};
+    const query: Record<string, string> = {};
+    this.list()
       .filter((p) => p.quantity > 0)
-      .reduce((result, p) => {
-        result = result + `{${p.id}:${p.quantity}},`;
-        console.log("computed");
-        console.log(result);
-        return result;
-      }, '');
+      .forEach((p) => {
+        query[p.id] = p.quantity.toString();
+        if (p.products)
+        {
+          p.products.forEach(sp =>{
+            query[sp.id] = sp.quantity.toString();
+          })
+        }
+      });
+    return query;
   });
 
   productAmount(p: IProduct) {
@@ -89,6 +95,8 @@ export class BudgetProducts {
     );
   }
   filterBudgetsByName(text: string): IBudget[] {
-    return this.budgets().filter((budget) => budget.client.name.toLowerCase().includes(text.toLowerCase()));
+    return this.budgets().filter((budget) =>
+      budget.client.name.toLowerCase().includes(text.toLowerCase())
+    );
   }
 }

@@ -32,8 +32,8 @@ export class Product {
         i === this.parentIndex() ? { ...p, quantity: value } : p
       )
     );
-    this.router.navigate(['/budget'], {
-      queryParams: [this.budgetServ.params()],
+    this.router.navigate([''], {
+      queryParams: this.budgetServ.params(),
     })
   }
 }
