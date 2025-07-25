@@ -1,0 +1,9 @@
+<form class="mx-auto">
+    @for (product of products(); track product.id; let index = $index){
+        <app-product [parentIndex]="index" [product] = "product"></app-product>
+    }
+    <article class="p-5">
+        <p class="text-right text-xl lg:text-2xl font-bold">Precio presupuestado: <span class="total-budget text-3xl lg:text-4xl">{{totalBudget()}}</span>€</p>
+    </article>
+    <app-client></app-client>
+</form>
