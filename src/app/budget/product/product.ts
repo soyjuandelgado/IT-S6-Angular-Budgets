@@ -1,7 +1,8 @@
 import { Component, inject, input } from '@angular/core';
 import { Panel } from '../panel/panel';
-import { IProduct } from '../iproduct';
-import { BudgetProducts } from '../budget-products';
+import { IProduct } from '../../shared/models/iproduct';
+import { BudgetProducts } from '../../shared/services/budget-products';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -21,6 +22,8 @@ export class Product {
     quantity: 0,
   });
 
+  router = inject(Router)
+
   changeProduct(event: Event) {
     const input = event.target as HTMLInputElement;
     const value = input.checked ? 1 : 0;
@@ -29,5 +32,8 @@ export class Product {
         i === this.parentIndex() ? { ...p, quantity: value } : p
       )
     );
+    this.router.navigate([''], {
+      queryParams: this.budgetServ.params(),
+    })
   }
 }

@@ -1,6 +1,7 @@
 import { Component, inject, input } from '@angular/core';
-import { IProduct } from '../iproduct';
-import { BudgetProducts } from '../budget-products';
+import { IProduct } from '../../shared/models/iproduct';
+import { BudgetProducts } from '../../shared/services/budget-products';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-panel',
@@ -22,22 +23,16 @@ export class Panel {
   });
   showModal = false;
 
+  router = inject(Router)
+
   substract() {
     const value = this.getCurrentQuantity()
     if (value > 1) this.updateProductQuantity(value - 1);
-    // const value = 
-      // this.products()[this.parentIndex()].products![this.productIndex()]
-      //   .quantity;
-    // if (value > 1) this.changeQuantity(value - 1);
   }
 
   add() {
     const value = this.getCurrentQuantity()
     if (value < 100) this.updateProductQuantity(value + 1);
-    // const value =
-      // this.products()[this.parentIndex()].products![this.productIndex()]
-      //   .quantity;
-    // if (value < 100) this.changeQuantity(value + 1);
   }
 
   changeQuantity(value: number) {
@@ -54,16 +49,6 @@ export class Panel {
     this.showModal = false;
   }
 
-  // @HostListener('document:keydown.escape', ['$event'])
-  // onKeydownHandler(event: KeyboardEvent) {
-  //   // La acción de cerrar solo se ejecuta si el modal está abierto
-  //   if (this.showModal) {
-  //     this.closeModal();
-  //   }
-  // }
-  // Función auxiliar para actualizar la cantidad del subproducto
-
-  // Función auxiliar para obtener la cantidad actual del subproducto
   private getCurrentQuantity(): number {
     return this.products()[this.parentIndex()].products![this.productIndex()]
       .quantity;
@@ -72,19 +57,21 @@ export class Panel {
   private updateProductQuantity(newQuantity: number): void {
     this.products.update((currentProducts) => {
       const updatedProducts = [...currentProducts]; // Copia superficial para la inmutabilidad
-      const parentProduct = { ...updatedProducts[this.parentIndex()] }; // Copia el producto padre
+      const parentProduct = { ...updatedProducts[this.parentIndex()] }; 
 
-      // Asegúrate de que products exista antes de intentar copiarlo
       if (parentProduct.products) {
-        parentProduct.products = [...parentProduct.products]; // Copia los subproductos
+        parentProduct.products = [...parentProduct.products];
         parentProduct.products[this.productIndex()] = {
           ...parentProduct.products[this.productIndex()],
           quantity: newQuantity,
-        }; // Actualiza el subproducto específico
+        };
       }
 
-      updatedProducts[this.parentIndex()] = parentProduct; // Asigna el producto padre actualizado
+      updatedProducts[this.parentIndex()] = parentProduct;
       return updatedProducts;
     });
+    this.router.navigate([''], {
+      queryParams: this.budgetServ.params(),
+    })
   }
 }

@@ -1,9 +1,10 @@
 import { computed, Injectable, signal } from '@angular/core';
-import { IProduct } from './iproduct';
-import { IClient } from './iclient';
-import { IBudget } from './ibudget';
-import { PRODUCTS_DATA } from '../data/products-base';
-import { BUDGETS_TEST_LIST } from '../data/budgets-test';
+import { IProduct } from '../models/iproduct';
+import { IClient } from '../models/iclient';
+import { IBudget } from '../models/ibudget';
+import { PRODUCTS_DATA } from '../../data/products-base';
+import { BUDGETS_TEST_LIST } from '../../data/budgets-test';
+import { Params } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -15,6 +16,22 @@ export class BudgetProducts {
   total = computed(() => {
     console.log(this.list());
     return this.productListAmount(this.list());
+  });
+
+  params = computed(() => {
+    // const query: { [key: string]: string } = {};
+    const query: Record<string, string> = {};
+    this.list()
+      .filter((p) => p.quantity > 0)
+      .forEach((p) => {
+        query[p.id] = p.quantity.toString();
+        if (p.products) {
+          p.products.forEach((sp) => {
+            query[sp.id] = sp.quantity.toString();
+          });
+        }
+      });
+    return query;
   });
 
   productAmount(p: IProduct) {
@@ -50,7 +67,6 @@ export class BudgetProducts {
   }
 
   createBudget = (): IBudget => ({
-    //products: [...this.list()],
     products: JSON.parse(JSON.stringify(this.list())), //Copia profunda
     client: { ...this.client() },
     total: this.total(),
@@ -78,6 +94,31 @@ export class BudgetProducts {
     );
   }
   filterBudgetsByName(text: string): IBudget[] {
-    return this.budgets().filter((budget) => budget.client.name.toLowerCase().includes(text.toLowerCase()));
+    return this.budgets().filter((budget) =>
+      budget.client.name.toLowerCase().includes(text.toLowerCase())
+    );
+  }
+
+  loadBudget(params: Params) {
+    this.list.update((currentList) =>
+      currentList.map((p) => {
+        if (params[p.id]) {
+          if (p.products) {
+            return {
+              ...p,
+              quantity: Number(params[p.id]),
+              products: p.products.map((sp) => ({
+                ...sp,
+                quantity: params[sp.id] ? Number(params[sp.id]) : 0,
+              })),
+            };
+          }else{
+            return { ...p, quantity: Number(params[p.id]) };
+          }
+        } else {
+          return { ...p, quantity: 0 };
+        }
+      })
+    );
   }
 }

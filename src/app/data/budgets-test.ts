@@ -1,4 +1,4 @@
-import { IBudget } from "../budget/ibudget"
+import { IBudget } from "../shared/models/ibudget"
 
 export const BUDGETS_TEST_LIST: IBudget[] = [
     {
