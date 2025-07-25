@@ -12,6 +12,7 @@
     - [5. Lista de presupuestos](#5-lista-de-presupuestos)
     - [6. Ordenar presupuestos](#6-ordenar-presupuestos)
     - [7. Filtrar presupuestos](#7-filtrar-presupuestos)
+    - [8. Cargar datos desde url](#8-cargar-datos-desde-url)
   - [💻Tecnologías Utilizadas](#tecnologías-utilizadas)
   - [📋Requisitos](#requisitos)
   - [🛠️Instalación](#️instalación)
@@ -105,6 +106,13 @@ Página web para generar presupuestos de desarrollo. Permite guardar los presupu
   <img src="public/ex7.png" width="500" style="vertical-align: top;">
   <img src="public/ex7-mobile.png" width="200" style="vertical-align: top;">
 </div>
+
+### 8. Cargar datos desde url
+
+- Añadir parámetros en la ruta al modificar el presupuesto.
+- Leer la ruta actual y cargar los parámetros en el presupuesto.
+
+<img src="public/ex8.png" width="500" style="margin-top: 1rem; margin-bottom: 1rem;">
 
 ## 💻Tecnologías Utilizadas
 
